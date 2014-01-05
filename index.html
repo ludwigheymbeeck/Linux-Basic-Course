@@ -61,7 +61,7 @@
     <ul class="paddingleft fragment">
         <li>Achtergrond; Ubuntu installaties</li>
         <li>Basis Linux systeemconcepten</li>
-        <li>Gebruik van GNOME</li>
+        <li>Gebruik van GNOME/Unity</li>
         <li>Command-Line gereedschappen</li>
         <li>Werken met tekstbestanden op Ubuntu; Mail en Web</li>
         <li>Aanmaak en publiceren van documenten; andere Office Software</li>
@@ -143,47 +143,160 @@
 
 
 <div class="slide">
-    <h1>Basic Linux - Files and Directories</h1>
+    <h1>Linux Files and Directories</h1>
+    <h6>Gedeeltelijke structuur</h6>
+	<img src="images/unix-filesystem.png" />
+</div>
+
+<div class="slide">
+    <h1>Basic Linux - Typical Directories</h1>
+	<!--<table cellspacing="0" cellpadding="0" border="0" width="70%" nosave=""> -->
+	<div class="paddingleftsmall" style="width: 90%;">
+		<table border="1" style="width: 90%;">
+		<tr class="fragment">
+		<td><b>DIRECTORY</b></td>
+		<td style="width: 75%"><b>TYPICAL CONTENTS</b></td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/</td>
+		<td>The "root" directory</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/bin</td>
+		<td>Essential low-level system utilities</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/usr/bin</td>
+		<td>Higher-level system utilities and application programs</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/sbin</td>
+		<td>Superuser system utilities (for performing system administration tasks)</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/lib</td>
+		<td>Program libraries (collections of system calls that can be included
+		in programs by a compiler) for low-level system utilities</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/usr/lib</td>
+		<td>Program libraries for higher-level user programs</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/tmp</td>
+		<td>Temporary file storage space (can be used by any user)</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/home</td>
+		<td>User home directories containing personal file space for
+		each user. Each directory is named after the login of the user.</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/etc</td>
+		<td>System configuration and information files</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/dev</td>
+		<td>Hardware devices</td>
+		</tr>
+		<tr class="fragmentsmall">
+		<td>/proc</td>
+		<td>A pseudo-filesystem which is used as an interface to the kernel.&nbsp;
+		Includes a sub-directory for each active program (or process).</td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+<div class="slide">
+    <h1>Directory and File Handling Commands</h1>
 
 </div>
 
 <div class="slide">
-    <h1>Basic Linux - Disk and Partitions</h1>
+    <h1>Let's Code!</h1>
+	<xmp class="prettyprint xxsmall">
+Probeer de volgende commandovolgorde uit:
+
+    cd
+    pwd
+    ls -al
+    cd .
+    pwd     (waar bevind je je nu?)
+    cd ..
+    pwd
+    ls -al
+    cd ..
+    pwd
+    ls -al
+    cd ..
+    pwd     (wat gebeurt er nu?)
+    cd /etc
+    ls -al | more
+    cat passwd
+    cd -
+    pwd
+
+Onderzoek verder het filesysteem met de commando's cd, ls, pwd and cat. 
+Kijk in /bin, /usr/bin, /sbin, /tmp and /boot. Wat zie je?
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Let's Code!</h1>
+	<xmp class="prettyprint xxsmall">
+Onderzoek /dev. Kun je bepalen welke devices beschikbaar zijn? Welke zijn character-oriented 
+en welke block-oriented? Kan je je tty (terminal) device (typen van 'who am i' kan helpen) 
+bepalen? Wie is de eigenaar van je tty (gebruik ls -l hiervoor)?
+
+Onderzoek /proc. Laat de inhoud van de bestanden interrupts, devices, cpuinfo, meminfo en 
+uptime zien gebruik makende van het commando cat. Kun je zien waarom we zeggen dat /proc een
+pseudo-filesysteem is welk toegang geeft tot de kernel structuren?
+Ga naar de home directory van een andere gebruiker dmv cd ~username. 
+Ga vervolgens terug naar je home directory.
+Maak de subdirectories work en play.
+Delete subdirectory work.
+
+Copieer de file /etc/passwd naar je home directory.
+Verplaats de file vervolgens naar de subdirectory play.
+Ga naar de subdirectory play en creeer een symbolische link met naam terminal naar je tty device.
+Wat gebeurt er als je een link naar tty device maakt?
+Wat is het verschil tussen een lijst van inhoud van directory play met ls -l en ls -L?
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Disk and Partitions</h1>
 
 </div>
 
 <div class="slide">
-    <h1>Basic Linux - Linux Filesystems</h1>
+    <h1>Users and Groups</h1>
 
 </div>
 
 <div class="slide">
-    <h1>Basic Linux - Users and Groups</h1>
+    <h1>Privileged Operations</h1>
 
 </div>
 
 <div class="slide">
-    <h1>Basic Linux - Privileged Operations</h1>
+    <h1>GNOME/Unity Basics</h1>
 
 </div>
 
 <div class="slide">
-    <h1>GNOME Basics</h1>
+    <h1>GNOME/Unity - Desktop</h1>
 
 </div>
 
 <div class="slide">
-    <h1>GNOME - Desktop</h1>
+    <h1>GNOME/Unity - Personalizing Desktop</h1>
 
 </div>
 
 <div class="slide">
-    <h1>GNOME - Personalizing Desktop</h1>
-
-</div>
-
-<div class="slide">
-    <h1>GNOME - Window Manager</h1>
+    <h1>GNOME/Unity - Window Manager</h1>
 
 </div>
 
