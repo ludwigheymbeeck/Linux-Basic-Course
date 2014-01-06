@@ -306,12 +306,64 @@ Wat is het verschil tussen een lijst van inhoud van directory play met ls -l en 
 
 <div class="slide">
     <h1>Disk and Partitions</h1>
+	<xmp class="prettyprint small">
+fdisk: partition manipulator          e.g.: sudo fdisk ­l
 
+mount: mount a file system            Usage: mount ­t type device dir                                          
+                                      e.g.: mount /dev/sda5 /media/target
+
+umount: unmount file systems          Usage: umount [OPTIONS] dir | device...                          
+                                      e.g.:  umount /media/target
+
+du: estimate file space usage         Usage: du [OPTION]... [FILE]...
+                                      e.g.: du
+                                      
+df: filesystem disk space usage       Usage: df [OPTION]... [FILE]...
+                                      e.g.: df
+
+quota: disk usage and limits          Usage: quota [OPTION]
+                                      e.g.: quota ­v
+	</xmp>
 </div>
 
 <div class="slide">
     <h1>Users and Groups</h1>
+	<xmp class="prettyprint small">
+change user ID or become super­user             Usage: su [OPTION] [LOGIN]
+                                               e.g.: su remo, su
+                                               
+passwd: update a user's password               Usage: passwd [OPTION]
+                                               e.g.: passwd
+                                               
+who: show who is logged on                     Usage: who [OPTION]
+                                               e.g. who , who ­b , who ­q
+	</xmp>
+</div>
 
+<div class="slide">
+    <h1>File Permissions</h1>
+	<xmp class="prettyprint small">
+3 types of file permissions: read, write, execute
+
+10 bit format from 'ls -l' command
+                1         2 3 4      5 6 7      8 9 10
+permissions: file type    owner      group      others
+	</xmp>
+	<br>
+    <img src="images/filetypes.gif" />
+    <br>
+	<xmp class="prettyprint small">
+permissions: read = 4, write = 2, execute = ­1
+      
+chmod: change file permissions    Usage: chmod [OPTION] [MODE] [FILE]                               
+                                  e.g.: chmod 744 calculate.sh
+                                         
+chown: change file owner          Usage: chown [OPTION]... OWNER[:[GROUP]] FILE...
+                                  e.g.: chown jef myfile.txt
+                                         
+chgrp: change group owner         Usage: chgrp [OPTION]... OWNER[:[GROUP]] FILE...
+                                  e.g.: chgrp groupofjef myfile.txt
+	</xmp>
 </div>
 
 <div class="slide">
@@ -322,22 +374,61 @@ Wat is het verschil tussen een lijst van inhoud van directory play met ls -l en 
 <div class="slide">
     <h1>Let's Code!</h1>
 	<xmp class="prettyprint xxsmall">
-        Describe three different ways of setting the permissions on a file or directory to r--r--r--. Create a file and see if this works.
-        Team up with a partner. Copy /bin/sh to your home directory. Type "chmod +s sh". Check the permissions on sh in the directory listing. Now ask your partner to change into your home directory and run the program ./sh. Ask them to run the id command. What's happened?  Your partner can type exit to return to their shell.
-        What would happen if the system administrator created a sh file in this way? Why is it sometimes necessary for a system administrator to use this feature using programs other than sh?
-        Delete sh from your home directory (or at least to do a chmod -s sh).
-        Modify the permissions on your home directory to make it completely private. Check that your partner can't access your directory. Now put the permissions back to how they were.
-        Type umask 000 and then create a file called world.txt containing the words "hello world". Look at the permissions on the file. What's happened? Now type umask 022 and create a file called world2.txt. When might this feature be useful?
-        Create a file called "hello.txt" in your home directory using the command cat -u > hello.txt. Ask your partner to change into your home directory and run tail -f hello.txt. Now type several lines into hello.txt. What appears on your partner's screen?
-        Use find to display the names of all files in the /home subdirectory tree. Can you do this without displaying errors for files you can't read?
+        Describe three different ways of setting the permissions on a file or directory to r--r--r--.
+        Create a file and see if this works.
+        
+        Team up with a partner. Copy /bin/sh to your home directory. Type "chmod +s sh". 
+        Check the permissions on sh in the directory listing. 
+        
+        Now ask your partner to change into your home directory and run the program ./sh. 
+        Ask them to run the id command. What's happened?  
+        
+        Your partner can type exit to return to their shell.
+        What would happen if the system administrator created a sh file in this way? 
+        
+        Why is it sometimes necessary for a system administrator to use this feature using 
+        programs other than sh? Delete sh from your home directory (or at least to do a chmod -s sh).
+        
+        Modify the permissions on your home directory to make it completely private. 
+        Check that your partner can't access your directory. Now put the permissions back to how they were.
+        
+        Type umask 000 and then create a file called world.txt containing the words "hello world". 
+        Look at the permissions on the file. What's happened? Now type umask 022 and create a file 
+        called world2.txt. When might this feature be useful?
+        
+        Create a file called "hello.txt" in your home directory using the command cat -u > hello.txt. 
+        Ask your partner to change into your home directory and run tail -f hello.txt. 
+        
+        Now type several lines into hello.txt. What appears on your partner's screen?
+        Use find to display the names of all files in the /home subdirectory tree. 
+        
+        Can you do this without displaying errors for files you can't read?
         Use find to display the names of all files in the system that are bigger than 1MB.
-        Use find and file to display all files in the /home subdirectory tree, as well as a guess at what sort of a file they are. Do this in two different ways.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Let's Code! (vervolg)</h1>
+	<xmp class="prettyprint xxsmall">
+        Use find and file to display all files in the /home subdirectory tree, as well as a guess at 
+        what sort of a file they are. Do this in two different ways.
+        
         Use grep to isolate the line in /etc/passwd that contains your login details.
-        Use find and grep and sort to display a sorted list of all files in the /home subdirectory tree that contain the word hello somewhere inside them.
-        Use locate to find all filenames that contain the word emacs. Can you combine this with grep to avoid displaying all filenames containing the word lib?
-        Create a file containing some lines that you think would match the regular expression: (^[0-9]{1,5}[a-zA-z ]+$)|none and some lines that you think would not match. Use egrep to see if your intuition is correct.
-        Archive the contents of your home directory (including any subdirectories) using tar and cpio. Compress the tar archive with compress, and the cpio archive with gzip. Now extract their contents.
-        On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. Can you use this file with od to printout a random decimal number?
+        Use find and grep and sort to display a sorted list of all files in the /home subdirectory tree 
+        that contain the word hello somewhere inside them.
+        
+        Use locate to find all filenames that contain the word emacs. Can you combine this with grep to avoid 
+        displaying all filenames containing the word lib?
+        
+        Create a file containing some lines that you think would match the regular expression: 
+        (^[0-9]{1,5}[a-zA-z ]+$)|none and some lines that you think would not match. 
+        Use egrep to see if your intuition is correct.
+        
+        Archive the contents of your home directory (including any subdirectories) using tar and cpio. 
+        Compress the tar archive with compress, and the cpio archive with gzip. Now extract their contents.
+        
+        On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. 
+        Can you use this file with od to printout a random decimal number?
         Type mount (with no parameters) and try to interpret the output.
 	</xmp>
 </div>
