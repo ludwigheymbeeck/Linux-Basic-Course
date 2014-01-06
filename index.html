@@ -107,6 +107,18 @@
 </div>
 
 <div class="slide">
+    <h1>Linux Commands - More Info...</h1>
+	<xmp class="prettyprint">
+man <command>: all information about the command
+
+<command> --help: available options for that command
+
+e.g.:   man ls
+        ls --help
+	</xmp>
+</div>
+
+<div class="slide">
     <h1>Let's Code!</h1>
 	<xmp class="prettyprint xxsmall">
     Geef volgende commando's in aan de prompt en probeer ze te begrijpen.
@@ -210,7 +222,34 @@
 
 <div class="slide">
     <h1>Directory and File Handling Commands</h1>
+	<xmp class="prettyprint xsmall">
+mkdir: make directories             Usage: mkdir [OPTION] DIRECTORY...                               
+                                    e.g.: mkdir userdir
+       
+ls: list directory contents         Usage: ls [OPTION]... [FILE]...                                               
+                                    e.g.: ls, ls -­l, ls userdir
+    
+cd: changes directories             Usage: cd [DIRECTORY]                                                        
+                                    e.g.: cd userdir
+    
+pwd: print name of current working directory                               
+                                    Usage: pwd
+     
+copy files and directories          Usage: cp [OPTION]... SOURCE DEST                     
+                                    e.g.: cp sample.txt sample_copy.txt                              
+                                          cp sample_copy.txt target_dir                              
 
+move (rename) files                 Usage: mv [OPTION]... SOURCE DEST                     
+                                    e.g.: mv source.txt target_dir                                          
+                                          mv old.txt new.txt
+
+rm: remove files or directories     Usage: rm [OPTION]... FILE...                               
+                                    e.g.: rm file1.txt , rm ­rf some_dir
+
+find: search files in directory hierarchy                 
+                                    Usage: find [OPTION] [path] [pattern]                    
+                                    e.g.: find file1.txt, find ­name file1.txt
+	</xmp>
 </div>
 
 <div class="slide">
@@ -278,6 +317,29 @@ Wat is het verschil tussen een lijst van inhoud van directory play met ls -l en 
 <div class="slide">
     <h1>Privileged Operations</h1>
 
+</div>
+
+<div class="slide">
+    <h1>Let's Code!</h1>
+	<xmp class="prettyprint xxsmall">
+        Describe three different ways of setting the permissions on a file or directory to r--r--r--. Create a file and see if this works.
+        Team up with a partner. Copy /bin/sh to your home directory. Type "chmod +s sh". Check the permissions on sh in the directory listing. Now ask your partner to change into your home directory and run the program ./sh. Ask them to run the id command. What's happened?  Your partner can type exit to return to their shell.
+        What would happen if the system administrator created a sh file in this way? Why is it sometimes necessary for a system administrator to use this feature using programs other than sh?
+        Delete sh from your home directory (or at least to do a chmod -s sh).
+        Modify the permissions on your home directory to make it completely private. Check that your partner can't access your directory. Now put the permissions back to how they were.
+        Type umask 000 and then create a file called world.txt containing the words "hello world". Look at the permissions on the file. What's happened? Now type umask 022 and create a file called world2.txt. When might this feature be useful?
+        Create a file called "hello.txt" in your home directory using the command cat -u > hello.txt. Ask your partner to change into your home directory and run tail -f hello.txt. Now type several lines into hello.txt. What appears on your partner's screen?
+        Use find to display the names of all files in the /home subdirectory tree. Can you do this without displaying errors for files you can't read?
+        Use find to display the names of all files in the system that are bigger than 1MB.
+        Use find and file to display all files in the /home subdirectory tree, as well as a guess at what sort of a file they are. Do this in two different ways.
+        Use grep to isolate the line in /etc/passwd that contains your login details.
+        Use find and grep and sort to display a sorted list of all files in the /home subdirectory tree that contain the word hello somewhere inside them.
+        Use locate to find all filenames that contain the word emacs. Can you combine this with grep to avoid displaying all filenames containing the word lib?
+        Create a file containing some lines that you think would match the regular expression: (^[0-9]{1,5}[a-zA-z ]+$)|none and some lines that you think would not match. Use egrep to see if your intuition is correct.
+        Archive the contents of your home directory (including any subdirectories) using tar and cpio. Compress the tar archive with compress, and the cpio archive with gzip. Now extract their contents.
+        On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. Can you use this file with od to printout a random decimal number?
+        Type mount (with no parameters) and try to interpret the output.
+	</xmp>
 </div>
 
 <div class="slide">
