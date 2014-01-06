@@ -306,7 +306,7 @@ Wat is het verschil tussen een lijst van inhoud van directory play met ls -l en 
 
 <div class="slide">
     <h1>Disk and Partitions</h1>
-	<xmp class="prettyprint small">
+	<xmp class="prettyprint xsmall">
 fdisk: partition manipulator          e.g.: sudo fdisk -l
 
 mount: mount a file system            Usage: mount ­t type device dir                                          
@@ -326,20 +326,20 @@ df: filesystem disk space usage       Usage: df [OPTION]... [FILE]...
 <div class="slide">
     <h1>Users and Groups</h1>
 	<xmp class="prettyprint small">
-change user ID or become super­user             Usage: su [OPTION] [LOGIN]
-                                               e.g.: su remo, su
-                                               
-passwd: update a user's password               Usage: passwd [OPTION]
-                                               e.g.: passwd
-                                               
-who: show who is logged on                     Usage: who [OPTION]
-                                               e.g. who , who ­b , who ­q
+change user ID or become super­user      Usage: su [OPTION] [LOGIN]
+                                        e.g.: su remo, su
+                                           
+passwd: update a user's password        Usage: passwd [OPTION]
+                                        e.g.: passwd
+                                        
+who: show who is logged on              Usage: who [OPTION]
+                                        e.g. who , who ­b , who ­q
 	</xmp>
 </div>
 
 <div class="slide">
     <h1>File Permissions</h1>
-	<xmp class="prettyprint small">
+	<xmp class="prettyprint xsmall">
 3 types of file permissions: read, write, execute
 
 10 bit format from 'ls -l' command
@@ -349,7 +349,7 @@ permissions: file type    owner      group      others
 	<br>
     <img src="images/filetypes.gif" />
     <br>
-	<xmp class="prettyprint small">
+	<xmp class="prettyprint xxsmall">
 permissions: read = 4, write = 2, execute = ­1
       
 chmod: change file permissions    Usage: chmod [OPTION] [MODE] [FILE]                               
@@ -414,15 +414,16 @@ chgrp: change group owner         Usage: chgrp [OPTION]... OWNER[:[GROUP]] FILE.
         Use find and grep and sort to display a sorted list of all files in the /home subdirectory tree 
         that contain the word hello somewhere inside them.
         
-        Use locate to find all filenames that contain the word emacs. Can you combine this with grep to avoid 
-        displaying all filenames containing the word lib?
+        Use locate to find all filenames that contain the word emacs. Can you combine this with grep 
+        to avoid displaying all filenames containing the word lib?
         
         Create a file containing some lines that you think would match the regular expression: 
         (^[0-9]{1,5}[a-zA-z ]+$)|none and some lines that you think would not match. 
         Use egrep to see if your intuition is correct.
         
         Archive the contents of your home directory (including any subdirectories) using tar and cpio. 
-        Compress the tar archive with compress, and the cpio archive with gzip. Now extract their contents.
+        Compress the tar archive with compress, and the cpio archive with gzip. 
+        Now extract their contents.
         
         On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. 
         Can you use this file with od to printout a random decimal number?
