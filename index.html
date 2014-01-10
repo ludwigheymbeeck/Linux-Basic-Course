@@ -430,12 +430,10 @@ use gksudo to run such programs.
 <div class="slide">
     <h1>Firewall Setup</h1>
 	<xmp class="prettyprint xxsmall">
-A firewall is an application that protects your computer against unauthorized access by 
-people on the Internet or your local network. Firewalls block connections to your computer 
-from unknown sources. This helps prevent security breaches. Uncomplicated Firewall (ufw) 
-is the standard firewall configuration program in Ubuntu. It runs from the command line, 
-but a program called Gufw allows you to use it with a graphical user interface GUI. 
-Install it with:
+Firewalls block connections to your computer from unknown sources. This helps prevent 
+security breaches. Uncomplicated Firewall (ufw) is the standard firewall configuration 
+program in Ubuntu. It runs from the command line, but a program called Gufw allows you 
+to use it with a graphical user interface GUI. Install it with:
 
 sudo apt-get install gufw
 	</xmp>
@@ -446,6 +444,54 @@ sudo apt-get install gufw
 Once Gufw is installed, start Gufw by clicking Dash ‣ Applications ‣ Firewall configuration. 
 To enable the firewall, select the Enable option. By default, all incoming connections are 
 denied. This setting should be suitable for most users.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Encryption</h1>
+	<xmp class="prettyprint xxsmall">
+You may wish to protect your sensitive personal data—for instance, finan-
+cial records—by encrypting it. Encrypting a file or folder essentially “locks”
+that file or folder by encoding it with an algorithm that keeps it scrambled
+until it is properly decoded with a password. Encrypting your personal data
+ensures that no one can open your personal folders or read your private
+data without your authorization through the use of a private key.
+Ubuntu includes a number of tools to encrypt files and folders. 
+
+It is possible to encrypt a single folder—called Private—in a user's home folder. 
+To do this, follow these steps:
+
+1. Install the ecryptfs-utils software package from the Ubuntu Software Center. 
+2. Use the terminal to run ecryptfs-setup-private to set up the private folder.
+3. Enter your account's password when prompted.
+4. Either choose a mount passphrase or generate one.
+5. Record both passphrases in a safe location. These are required if you ever
+   have to recover your data manually.
+6. Log out and log back in to mount the encrypted folder.
+
+After the Private folder has been set up, any files or folders in it will automatically 
+be encrypted.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Recover Deleted Files</h1>
+	<xmp class="prettyprint xxsmall">
+I accidentally deleted some files that I need
+If you’ve deleted a file by accident, you may be able to recover it from Ubuntu’s 
+trash folder. This is a special folder where Ubuntu stores deleted files before 
+they are permanently removed from your computer. To access the trash folder 
+click on the Trash icon at the bottom of the Unity Launcher.
+
+If you want to restore deleted items from the trash:
+
+1. Open Trash
+
+2. Click on each item you want to restore to select it. Press and hold Ctrl
+   to select multiple items.
+
+3. Click Restore Selected Items to move the deleted items back to their
+   original locations.
 	</xmp>
 </div>
 
@@ -509,6 +555,31 @@ denied. This setting should be suitable for most users.
         On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. 
         Can you use this file with od to printout a random decimal number?
         Type mount (with no parameters) and try to interpret the output.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Processes</h1>
+	<xmp class="prettyprint xxsmall">
+To find out the process IDs of the underlying processes associated with the shell and its jobs, 
+use ps (process show):
+
+    $ ps
+      PID TTY          TIME CMD
+    17717 pts/10   00:00:00 bash
+    27501 pts/10   00:00:01 find
+    27502 pts/10   00:00:00 ps
+
+The PID of the shell (bash) is here 17717, the PID of find is 27501 and the PID of ps is 27502.
+To terminate a process or job abrubtly, use the kill command. kill allows jobs to referred to 
+in two ways - by their PID or by their job number. So
+
+    $ kill 27501
+    
+would terminate the find job. Sometimes that is not enoug and you need to force a process 
+to terminate. In that case use a -9 option (the SIGKILL signal):
+
+    $ kill -9 27501 
 	</xmp>
 </div>
 
@@ -1139,31 +1210,108 @@ your Ubuntu machine.
 </div>
 
 <div class="slide">
-    <h1>Connecting Other Systems - Remote Windows Terminal</h1>
-
+    <h1>Connecting Remote <br>Windows Terminal Services</h1>
+	<xmp class="prettyprint xxsmall">
+You must use command "rdesktop host", where host is the name or IP address of the system 
+running Windows Terminal Services. A window displays on your Linux desktop, showing the 
+standard Windows login screen as shown below:
+	</xmp>
+    <img src="images/windows-terminal-server.png" />
 </div>
 
 <div class="slide">
-    <h1>File Transfer and Sharing - Transfer to other systems</h1>
-    <h2>FTP</h2>
-    <h2>Shares and Remote Windows Systems</h2>
-    <h2>NFS</h2>
+    <h1>File Transfer and Sharing</h1>
+    <h6>FTP (File Transfer Protocol)</h6>
+	<xmp class="prettyprint xxsmall">
+gFTP, a FTP client with a nice graphical interface can be installed through the Ubuntu Software 
+Center or through sudo apt-get install gftp.
+	</xmp>
+    <img src="images/gftp.png" />
 </div>
 
 <div class="slide">
-    <h1>File Transfer and Sharing - Peer-to-Peer</h1>
+    <h1>File Transfer and Sharing</h1>
+    <h6>NFS (Network File System)</h6>
+	<xmp class="prettyprint xxsmall">
+NFS is the default network filesystem and file sharing mechanism for Linux. NFS filesystems 
+are identified by the name or IP address of the NFS server on which they live, a colon, 
+and the name of the directory that the server is exporting. For example, 192.168.6.64:/home/wvh 
+identifies the directory /home/wvh that is being exported by the NFS server whose IP address 
+is 192.168.6.64. NFS filesystems are mounted on directories on your local Ubuntu system just 
+like any other filesystem.
+
+To mount the remote NFS filesystem that I just mentioned, you therefore need to create a 
+mount point for it. I always create these in the directory /mnt so that they’re easily 
+identified as temporarily mounted devices. For example, the following command creates a 
+mount point called /mnt/nfs:
+
+$ sudo mkdir /mnt/nfs
+Password:
+
+After providing your password, the mount point exists, so we can now mount the NFS 
+directory using the standard Linux mount command, as in the following example:
+
+$ sudo mount -t nfs 192.168.6.64:/home/wvh /mnt/nfs
+
+At this point, you can verify that the directory is successfully mounted by either 
+listing that directory or by simply using the df command, as in the following example:
+
+$ df
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>File Transfer and Sharing - P2P</h1>
+    <h6>Deluge Peer-to-Peer application</h6>
+    <img src="images/deluge-torrent.png" />
 </div>
 
 <div class="slide">
     <h1>Software Development - Installation</h1>
+	<xmp class="prettyprint xsmall">
+To install the essentials for software development enter:
+
+sudo apt-get install build-essential
+
+It will provide you with C and C++ compilers, mandatory libraries, the make utility, 
+and the current set of Linux kernel headers.
+    </xmp>
 </div>
 
 <div class="slide">
     <h1>Software Development - IDE</h1>
+    <h6>Eclipse</h6>
+	<xmp class="prettyprint xxsmall">
+Eclipse is a multipurpose IDE written in Java. Eclipse was originally developed as an IDE
+framework for developing Java applications, but has been extended to support development in
+other languages. To install Eclipse and related packages, start the Synaptic Package Manager 
+from the System ➪ Administration menu, select Search, enter eclipse in the Search box that displays. 
+	</xmp>
+    <img src="images/eclipse.jpg" />
 </div>
 
 <div class="slide">
-    <h1>Software Development - Source Code Control</h1>
+    <h1>Software Development <br>Source Code Control</h1>
+    <h6>git</h6>
+	<xmp class="prettyprint xxsmall">
+Git is a distributed version control system. The program allows for non-linear development of projects, 
+and can handle large amounts of data effectively by storing it on the local server.
+
+Installing Git with apt-get is a quick and easy process: sudo apt-get install git-core
+
+How to Setup Git
+After Git is installed, whether from apt-get or from the source, you need to copy your username and 
+email in the gitconfig file. You can access this file at ~/.gitconfig.
+
+Opening it following a fresh Git install would reveal a completely blank page: sudo nano ~/.gitconfig
+
+You can use the follow commands to add in the required information.
+
+git config --global user.name "NewUser"
+git config --global user.email newuser@example.com
+
+You can see all of your settings with this command: git config --list
+	</xmp>
 </div>
 
 <!--
