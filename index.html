@@ -93,6 +93,11 @@
 </div>
 
 <div class="slide">
+    <h1>Linux Architecture</h1>
+	<img src="images/UnixArchitecture.gif" />
+</div>
+
+<div class="slide">
     <h1>Ubuntu installatie</h1>
     <ul class="paddingleft">
         <li>Installeer VirtualBox: <strong>www.virtualbox.org</strong></li>
@@ -100,10 +105,23 @@
     </ul>
 </div>
 
+<div class="slide">
+    <h1>Ubuntu - Unity UI</h1>
+	<xmp class="prettyprint xxsmall">
+This initial view is comprised of the The Desktop Background and two bars—one is 
+horizontally located at the top of your desktop called The Menu Bar, and the other 
+bar is vertically oriented at the far left, called the Launcher.
+	</xmp>
+	<img src="images/linux-desktop.png" />
+</div>
 
 <div class="slide">
-    <h1>Linux Architecture</h1>
-	<img src="images/UnixArchitecture.gif" />
+    <h1>Ubuntu - Launch Term</h1>
+	<img src="images/unity-dash.png" />
+    <ul>
+        <li>Type here: Term</li>
+		<li>Next click on Term icon</li>
+    </ul>
 </div>
 
 <div class="slide">
@@ -325,10 +343,30 @@ df: filesystem disk space usage       Usage: df [OPTION]... [FILE]...
 
 <div class="slide">
     <h1>Users and Groups</h1>
-	<xmp class="prettyprint small">
-change user ID or become super­user      Usage: su [OPTION] [LOGIN]
-                                        e.g.: su remo, su
-                                           
+	<xmp class="prettyprint xxsmall">
+Most Linux systems use the local /etc/passwd and /etc/group files for 
+authentication and group membership information.
+
+An entry in the /etc/passwd file is the following:
+ludwig:x:1000:1000:Ludwig Heymbeeck,,,:/home/ludwig:/bin/bash
+
+The fields in this entry are the following:
+
+ludwig:           My login name.
+x:                The password field. In this case, an x means that password 
+                  information is actually stored in the file /etc/shadow.
+                  
+1000:             My user ID, which is the numeric value associated with my login name.
+
+1000:             The numeric group ID of the default group of which I am a member.
+
+Ludwig Heymbeeck: A field containing my full name and other text information such 
+                  as office location and office and home phone numbers.
+                  
+/home/ludwig:     My home directory.
+
+/bin/bash:        The application that runs when I log in, in this case a shell.
+                                   
 passwd: update a user's password        Usage: passwd [OPTION]
                                         e.g.: passwd
                                         
@@ -365,7 +403,27 @@ chgrp: change group owner         Usage: chgrp [OPTION]... OWNER[:[GROUP]] FILE.
 
 <div class="slide">
     <h1>Privileged Operations</h1>
+	<xmp class="prettyprint xxsmall">
+In Linux (and Unix in general), there is a SuperUser named Root. The Windows equivalent 
+of Root is Administrators group. The SuperUser can do anything and everything, and thus 
+doing daily work as the SuperUser can be dangerous.
 
+By default, the Root (super­user) account password is locked in Ubuntu. This means that you
+cannot login as Root directly or use the su command to become the Root user.
+Change user ID                          e.g.: sudo -i -u ludwig
+
+Execute a command as another user       e.g.: sudo -u www vi index.html
+                                              sudo shutdown
+                                              sudo ls /usr/local/protected
+
+To start a root shell (i.e. a command window where you can run Root commands)
+                                        e.g.: sudo -i
+                                        
+Graphical sudo
+You should never use normal sudo to start graphical applications as Root. You should 
+use gksudo to run such programs.
+                                        e.g.: gksudo gedit /etc/fstab
+	</xmp>
 </div>
 
 <div class="slide">
@@ -432,123 +490,475 @@ chgrp: change group owner         Usage: chgrp [OPTION]... OWNER[:[GROUP]] FILE.
 </div>
 
 <div class="slide">
-    <h1>GNOME/Unity Basics</h1>
+    <h1>Personalizing Desktop</h1>
+    <img src="images/custom-desktop.png" />
+	<xmp class="prettyprint xxsmall">
+Adding and removing applications from the Launcher
+There are two ways to add an application to the Launcher:
+‣ Open the Dash, find the application to add, and drag and drop it to the Launcher
+‣ Run the application you want to add to the Launcher, right-click on the application’s icon 
+on the Launcher, and select Lock Launcher.
 
+To remove an application from the Launcher, right-click on the application's icon, 
+then select Unlock from Launcher.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>GNOME/Unity - Desktop</h1>
-
+    <h1>Nautilus File Manager</h1>
+	<img src="images/nautilus-file-manager.png" />
 </div>
 
 <div class="slide">
-    <h1>GNOME/Unity - Personalizing Desktop</h1>
+    <h1>Nautilus File Manager</h1>
+	<xmp class="prettyprint xxsmall">
+Opening files
+To open a file, you can either double-click on its icon or right-click the icon
+and select one of the Open With options.
 
-</div>
+Creating new folders
+To create a new folder from within Nautilus, click File ‣ Create New Folder.
+Then, name the folder that appears by replacing the default "Untitled Folder" with 
+your desired label (e.g., "Personal Finances"). You can also create a new folder by 
+pressing Ctrl+Shift+N, or by right-clicking in the file browser window and selecting 
+Create New Folder from the popup menu (this action will also work on the desktop).
 
-<div class="slide">
-    <h1>GNOME/Unity - Window Manager</h1>
+Copying files and folders
+You can copy files or folders in Nautilus by clicking Edit ‣ Copy, or by right-clicking 
+on the item and selecting Copy from the popup menu. When using the Edit menu in Nautilus, 
+make sure you’ve selected the file or folder you want to copy first (by left-clicking on 
+it once). Multiple files can be selected by left-clicking in an empty space (i.e., not 
+on a file or folder), holding the mouse buttonon down, and dragging the cursor across 
+the desired files or folders.
 
+Moving files and folders
+Select the item you want to move then click Edit ‣ Cut. Navigate to the desired location,
+then click Edit ‣ Paste. As with the copy command above, you can also perform this action 
+using the right-click menu, and it will work for multiple files or folders at once. An 
+alternative way to move a file or folder is to click on the item, and then drag it to 
+the new location.
+	</xmp>
 </div>
 
 <div class="slide">
     <h1>Command Line - Shell</h1>
+	<xmp class="prettyprint xxsmall">
+    A shell is a program which reads and executes commands for the user. Shells also 
+    usually provide features such job control, input and output redirection and a command 
+    language for writing shell scripts. A shell script is simply an ordinary text file 
+    containing a series of commands in a shell command language (just like a "batch file" 
+    under MS-DOS).
 
+    There are many different shells available on Linux systems (e.g. sh, bash, csh, ksh, 
+    tcsh etc.), and they each support a different command language. Here we will discuss 
+    the command language for the Bourne shell sh since it is available on almost all Linux 
+    systems (and is also supported under bash and ksh). Bash is the default shell for Ubuntu.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Command Line - Tasks</h1>
+    <h1>Let's Code!</h1>
+    <h6>Shell Scripting</h6>
+	<xmp class="prettyprint xxsmall">
+Maak een shell script bestand met naam simple aan met volgende inhoud:
 
+#!/bin/sh
+# this is a comment
+echo "The number of arguments is $#"
+echo "The arguments are $*"
+echo "The first is $1"
+echo "My process number is $$"
+echo "Enter a number from the keyboard: "
+read number
+echo "The number you entered was $number" 
+
+Laat de bestanden zien met protecties:
+ls -l simple
+
+We moeten simple bestand uitvoerbaar maken:
+chmod +x simple
+
+Voor nu simple shell script uit door:
+./simple hello world
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Command Line - Configure Shell</h1>
+    <h1>Start-up Shell Scripts</h1>
+	<xmp class="prettyprint xxsmall">
+    When you first login to a shell, your shell runs a systemwide start-up script 
+    (usually called /etc/profile under sh, bash and ksh and /etc/.login under csh). 
+    It then looks in your home directory and runs your personal start-up script 
+    (.profile under sh, bash and ksh and .cshrc under csh and tcsh). Your personal 
+    start-up script is therefore usually a good place to set up environment variables 
+    such as PATH, EDITOR etc. For example with bash, to add the directory ~/bin to your PATH, 
+    you can include the line:
 
+        export PATH=$PATH:~/bin
+
+    in your .profile. If you subsequently modify your .profile and you wish to import 
+    the changes into your current shell, type:
+
+        $ source .profile
+    or
+        $ . ./profile
+
+    The source command is built into the shell. It ensures that changes to the environment 
+    made in .profile affect the current shell, and not the shell that would otherwise be 
+    created to execute the .profile script.
+
+    With csh, to add the directory ~/bin to your PATH, you can include the line:
+
+        set path = ( $PATH $HOME/bin )
+
+    in your .cshrc.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Let's Code!</h1>
+	<xmp class="prettyprint xxsmall">
+Write a shell script which renames all .txt files as .text files. The command basename 
+might help you here.
+
+Write a shell script called pidof which takes a name as parameter and returns the PID(s) of 
+processes with that name.
+
+Shell scripts can also include functions. Functions are declared as:
+
+function funcname() {
+      statements
+}
+
+and invoked as funcname param1 param2... The parameters passed to the function are 
+accessible inside the function through the variables $1, $2, etc. Now add a usage() 
+function to your pidof script which prints usage instructions. Call usage() if the wrong 
+number of parameters is passed to the script.
+
+Modify your .bash_profile script so that your PATH includes the current directory (.) and 
+so that your environment variable EDITOR is set to vi (or whatever else you prefer to use). 
+Run the modified script using source .bash_profile and check that the changes you made have 
+been applied to the current shell (type set).
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Working with Bash Shell</h1>
+	<xmp class="prettyprint xxsmall">
+You can simply type history at any shell prompt, which displays something like the following:
+
+$ history
+233 make bootstrap
+234 info -f gcc.info
+235 export INFOPATH=`pwd`:$INFOPATH
+236 vi ~/.bashrc
+237 pushd ~/new
+237 ls /mnt/terastation/CDs
+238 pushd /mnt/terastation/CDs
+239 find . -name “T*.txt”
+[much more output deleted]
+
+You can redisplay any recently executed command by typing the Control-p command at any command
+prompt. Each time you type Control-p, the shell displays the previous command in its history list.
+Or you can use the Up Arrow Key.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Using Wildcards</h1>
+	<xmp class="prettyprint xxsmall">
+The shell supports four primary types of wildcards:
+
+?:                  (question mark) which matches any single character
+*:                  (asterisk) which matches any group of characters
+{string1, string2}: (curly bracket) which represents either string1 or string2
+[char1,char2,...]:  (square bracket) which matches any character or range of characters inside 
+                    the square brackets
+                    
+e.g.:
+$ ls
+d1t01.flac d1t01.mp3 d1t01.wav d1t02.flac d1t02.mp3 d1t02.wav d1t03.flac d1t03.mp3 d1t03.wav
+d2t01.flac d2t01.mp3 d2t01.wav d2t02.flac d2t02.mp3 d2t02.wav d2t03.flac d2t03.mp3 d2t03.wav
+
+$ ls d?t01.mp3
+d1t01.mp3 d2t01.mp3
+
+$ ls *.mp3
+d1t01.mp3 d1t02.mp3 d1t03.mp3 d2t01.mp3 d2t02.mp3 d2t03.mp3
+
+$ ls *.{flac,wav}
+d1t01.flac d1t01.wav d1t02.flac d1t02.wav d1t03.flac d1t03.wav
+d2t01.flac d2t01.wav d2t02.flac d2t02.wav d2t03.flac d2t03.wav
+
+$ ls d1t0[12].mp3
+d1t01.mp3 d1t02.mp3
+
+$ ls d1t0[12].{flac,wav}
+d1t01.flac d1t01.wav d1t02.flac d1t02.wav
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Pipes and Redirection</h1>
+	<xmp class="prettyprint xxsmall">
+Linux makes it easy to write the output of a command to a file by using what is called output 
+redirection, which is represented on the command line by the greater-than symbol (‘>’). As an 
+example, the following command writes the output of the ls command to the temporary file 
+/tmp/my_dir_list.txt:
+
+$ ls > /tmp/my_dir_list.txt
+
+You could then count the number of lines in that file using the wc -l command, as in the 
+following example:
+$ wc -l /tmp/my_dir_list.txt
+8
+
+However, you could write it in one command line with a pipe as follows:
+$ ls | wc -l
+8
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Bash Configuration</h1>
+	<xmp class="prettyprint xxsmall">
+When you start a bash shell on your Ubuntu system, it reads a certain amount of configuration 
+information from various text files on your system. In the order they’re read, these 
+configuration files are the following:
+
+/etc/profile (login shells only)
+/etc/bash.bashrc (all bash shells)
+~/.bash_profile (login shells only)
+~/.bashrc (all bash shells)
+
+The ~ symbol is a bash shortcut for referring to any user's home directory. ~/.bashrc is the 
+file .bashrc in the user's home directory;
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Environment Variables</h1>
+	<xmp class="prettyprint xxsmall">
+Environment variables are variables that are defined in the context of a shell and which are 
+read and used by applications on your system, including the shell itself. One of the most 
+commonly used environment variables is the PATH environment variables, which contains a 
+colon-separated list of directories that the shell searches (in order) to try to find commands. 
+You can examine the environment variables that are defined in a shell using any of three 
+mechanisms:
+
+1. using the shell’s built-in set command to display all shell variables that are currently defined
+
+2. using the printenv command to display a list of selected (or all) environment variables that are
+   currently defined
+
+3. using the shell’s built-in echo command to display the value of a specific environment variable
+
+e.g.
+$ echo $PATH
+
+To add a directory (here /usr/wvh/bin) to the list of directories that are searched for 
+commands, you can execute the following from a shell prompt:
+
+$ export PATH=/usr/wvh/bin:$PATH
+	</xmp>
 </div>
 
 <div class="slide">
     <h1>Text Files - Editors</h1>
-
+    <p>standaard editors:</p>
+    <ul>
+		<li>vi</li>
+		<li>nano</li>
+		<li>gedit</li>
+    </ul>
+    <p>andere editors:</p>
+    <ul>
+		<li>geany</li>
+		<li>sublime text</li>
+		<li>brackets</li>
+    </ul>
 </div>
 
 <div class="slide">
-    <h1>Text Files - vi</h1>
+    <h1>Text Files - vi editor</h1>
+	<xmp class="prettyprint xxsmall">
+Although beginners usually find vi somewhat awkward to use, it is useful to learn 
+because it is universally available (being supplied with all UNIX systems). It 
+also uses standard alphanumeric keys for commands, so it can be used on almost 
+any terminal or workstation without having to worry about unusual keyboard mappings. 
+System administrators like users to use vi because it uses very few system resources.
 
+To start vi, enter:
+
+        vi filename
+
+where filename is the name of the file you want to edit. If the file doesn't exist, 
+vi will create it for you.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Text Files - emacs</h1>
+    <h1>Quick reference for vi</h1>
+	<xmp class="prettyprint xxsmall">
+Inserting and typing text:
+i          insert text (and enter input mode)
+$a         append text (to end of line)
+ESC        re-enter command mode
+J          join lines
 
+Cursor movement:                        Deleting and moving text:
+h          left                         Backspace  delete character before cursor
+j          down                                    (only works in insert mode)
+k          up                           x          delete character under cursor
+l          right                        dw         delete word
+^          beginning of line            dd         delete line (restore with p or P)
+$          end of line                  <n> dd     delete n lines
+1 G        top of document              d$         delete to end of line
+G          end of document              dG         delete to end of file
+<n> G      go to line <n>               yy         yank/copy line (restore with p or P)
+^F         page forward                 <n> yy     yank/copy <n> lines
+^B         page backward
+w          word forwards
+b          word backwards
+
+Search and replace:
+%s/<search string>/<replace string>/g
+
+Miscellaneous:
+u          undo
+:w         save file
+:wq        save file and quit
+ZZ         save file and quit
+:q!        quit without saving
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Text Files - gedit</h1>
+    <h1>Let's Code!</h1>
+	<xmp class="prettyprint xsmall">
+Gebruik de vi editor voor het aanmaken van een bestand met naam testvi.txt 
+en met de volgende inhoud:
 
+     Dit is een test bestand voor vi.
+     Er zijn in dit bestand maar 2 lijnen.
+
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Mail - Client Set-up</h1>
+    <h1>Let's Code!</h1>
+    <h6>nano editor</h6>
+	<xmp class="prettyprint xsmall">
+Gebruik nu de nano editor voor het aanmaken van een bestand met naam testnano.txt 
+en met de volgende inhoud:
 
+     Dit is een test bestand voor nano.
+     Er zijn in dit bestand maar 2 lijnen.
+
+Tip: Gebruik 'man nano' commando om nano commando's aan te leren en gebruiken.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Mail - Send/Receive Mail</h1>
+    <h1>Let's Code!</h1>
+    <h6>gedit editor</h6>
+	<xmp class="prettyprint xsmall">
+Gebruik nu de gedit editor voor het aanmaken van een bestand met naam testgedit.txt 
+en met de volgende inhoud:
 
+     Dit is een test bestand voor gedit.
+     Er zijn in dit bestand maar 2 lijnen.
+
+Tip: Gebruik 'man gedit' commando om nano commando's aan te leren en gebruiken.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Mail - Organizing</h1>
+    <h1>Thunderbird Mail - Client Set-up</h1>
+	<xmp class="prettyprint xxsmall">
+Thunderbird is an email client developed by Mozilla and is easy to setup and use.
 
+In the top right corner of the Ubuntu desktop you will see an envelope icon in the 
+notification area. This is the messaging menu. From here, you can launch Thunderbird 
+by clicking set up mail.
+	</xmp>
+    <img src="images/thunderbird-setup.png" />
+	<xmp class="prettyprint xxsmall">
+Once completed, click the continue button. Thunderbird will automatically set up your email 
+account for you. When Thunderbird finishes detecting your email settings, click create 
+account and Thunderbird will do the rest. You can also set Thunderbird as your default news 
+and RSS reader by checking the boxes in the pop-up box that appear after you click create 
+your account. If you don’t want to see this message box every time you start Thunderbird, 
+simply deselect Always perform this check when starting Thunderbird. You are now ready 
+to start using Thunderbird.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Mail - Filing</h1>
-
-</div>
-
-<div class="slide">
-    <h1>Mail - SPAM</h1>
-
+    <h1>Thunderbird Mail - Send/Receive</h1>
+    <img src="images/Screenshot-Thunderbird.png" />
 </div>
 
 <div class="slide">
     <h1>Web - Firefox</h1>
-
+	<xmp class="prettyprint xxsmall">
+Once you have connected to the Internet, you should be able to browse the
+web. Mozilla Firefox is the default application for this in Ubuntu.
+	</xmp>
+    <img src="images/firefox.png" />
 </div>
 
 <div class="slide">
     <h1>Web - Chrome</h1>
-
+	<xmp class="prettyprint xxsmall">
+Google Chrome is not default available in Ubuntu, but can be easily installed 
+by going to: www.google.com/chrome/‎
+	</xmp>
+    <img src="images/chrome-download.png" />
 </div>
 
 <div class="slide">
     <h1>Documents - LibreOffice Suite</h1>
-
+	<xmp class="prettyprint small">
+LibreOffice suite is the default office suite when working with: 
+word documents, spreadsheets, and slide presentations.
+	</xmp>
+    <img src="images/libreoffice.png" />
 </div>
 
 <div class="slide">
     <h1>Documents - Scribus</h1>
-
-</div>
-
-<div class="slide">
-    <h1>Other Office Software - Impress</h1>
-
+	<xmp class="prettyprint small">
+Scribus is an Open Source Desktop Publishing software default 
+available in Ubuntu. 
+	</xmp>
+    <img src="images/scribus.png" />
 </div>
 
 <div class="slide">
     <h1>Graphics - General</h1>
+	<xmp class="prettyprint small">
+    Default installed in Ubuntu:
 
+      1. LibreOffice Draw
+      2. GIMP
+      3. Inkscape
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Graphics - LibreOffice Draw</h1>
+    <img src="images/libreoffice-draw.png" />
 </div>
 
 <div class="slide">
     <h1>Graphics - GIMP</h1>
-
+    <img src="images/gimp-splash.png" />
 </div>
 
 <div class="slide">
     <h1>Graphics - Inkscape</h1>
-
+    <img src="images/inkscape.png" />
 </div>
 
 <div class="slide">
