@@ -1135,35 +1135,29 @@ automatically detected by Ubuntu.
 </div>
 
 <div class="slide">
-    <h1>Making Secure Connections -
-    <br>Remote Systems</h1>
+    <h1>Making Secure Connections <br>Remote Systems</h1>
 	<xmp class="prettyprint xxsmall">
 Using ssh, you can establish a remote login session on any machine that is running an ssh daemon, sshd. 
 An ssh daemon must be running on the remote system. Daemon not running:
 $ ssh ulaptop
 ssh: connect to host ulaptop port 22: Connection refused
 
-The first time that you attempt to connect to a remote system that you have never connected to before, 
-you will see a message like the following:
+The first time you will see a message like the following:
 
 $ ssh ulaptop
 The authenticity of host ‘ulaptop (192.168.6.90)’ can’t be established.
 RSA key fingerprint is 07:e6:3a:50:4b:6d:e6:d8:f1:80:c6:b2:da:02:a3:da.
 Are you sure you want to continue connecting (yes/no)?
 
-To continue connecting to this system, type yes and press return. The ssh utility adds the RSA key for 
-the remote system to its list of known hosts (to prevent some other machine from impersonating the 
-remote machine in the future), and prompts you for your password, as in the following example:
+By typing yes the ssh utility adds the RSA key for the remote system to its list of known hosts, and 
+prompts you for your password, as in the following example:
 
 Warning: Permanently added ‘ulaptop’ (RSA) to the list of known hosts.
 wvh@ulaptop’s password:
 
-At this prompt, enter your password on the remote system and press return. The prompt will display:
+At this prompt, enter your password on the remote system and press return. The prompt will display
+something like:
 
-Linux ubuntu32 2.6.15-21-386 #1 PREEMPT Fri Apr 21 16:43:33 UTC 2013
-The programs included with the Ubuntu system are free software; the exact distribution terms for each 
-program are described in the individual files in /usr/share/doc/*/copyright.
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.
 Last login: Wed May 1 20:15:16 2013
 wvh@ubuntu32:~$
 	</xmp>
