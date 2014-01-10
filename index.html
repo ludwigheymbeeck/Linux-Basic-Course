@@ -1137,8 +1137,9 @@ automatically detected by Ubuntu.
 <div class="slide">
     <h1>Making Secure Connections <br>Remote Systems</h1>
 	<xmp class="prettyprint xxsmall">
-Using ssh, you can establish a remote login session on any machine that is running an ssh daemon, sshd. 
-An ssh daemon must be running on the remote system. Daemon not running:
+Using ssh, you can establish a remote login session on any machine that is running an 
+ssh daemon, sshd. An ssh daemon must be running on the remote system. Daemon not running:
+
 $ ssh ulaptop
 ssh: connect to host ulaptop port 22: Connection refused
 
@@ -1149,14 +1150,14 @@ The authenticity of host ‘ulaptop (192.168.6.90)’ can’t be established.
 RSA key fingerprint is 07:e6:3a:50:4b:6d:e6:d8:f1:80:c6:b2:da:02:a3:da.
 Are you sure you want to continue connecting (yes/no)?
 
-By typing yes the ssh utility adds the RSA key for the remote system to its list of known hosts, and 
-prompts you for your password, as in the following example:
+By typing yes the ssh utility adds the RSA key for the remote system to its list of known 
+hosts, and prompts you for your password, as in the following example:
 
 Warning: Permanently added ‘ulaptop’ (RSA) to the list of known hosts.
 wvh@ulaptop’s password:
 
-At this prompt, enter your password on the remote system and press return. The prompt will display
-something like:
+At this prompt, enter your password on the remote system and press return. The prompt will 
+display something like:
 
 Last login: Wed May 1 20:15:16 2013
 wvh@ubuntu32:~$
@@ -1285,19 +1286,18 @@ from the System ➪ Administration menu, select Search, enter eclipse in the Sea
 </div>
 
 <div class="slide">
-    <h1>Software Development <br>Source Code Control</h1>
-    <h6>git</h6>
+    <h1>Software Development <br>Source Code Control (git)</h1>
 	<xmp class="prettyprint xxsmall">
-Git is a distributed version control system. The program allows for non-linear development of projects, 
-and can handle large amounts of data effectively by storing it on the local server.
+Git is a distributed version control system. The program allows for non-linear development of 
+projects, and can handle large amounts of data effectively by storing it on the local server.
 
 Installing Git with apt-get is a quick and easy process: sudo apt-get install git-core
 
-How to Setup Git
-After Git is installed, whether from apt-get or from the source, you need to copy your username and 
-email in the gitconfig file. You can access this file at ~/.gitconfig.
+After Git is installed, whether from apt-get or from the source, you need to copy your 
+username and email in the gitconfig file. You can access this file at ~/.gitconfig.
+Opening it following a fresh Git install would reveal a completely blank page: 
 
-Opening it following a fresh Git install would reveal a completely blank page: sudo nano ~/.gitconfig
+sudo nano ~/.gitconfig
 
 You can use the follow commands to add in the required information.
 
