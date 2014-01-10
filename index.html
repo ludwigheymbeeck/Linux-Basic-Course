@@ -426,6 +426,29 @@ use gksudo to run such programs.
 	</xmp>
 </div>
 
+
+<div class="slide">
+    <h1>Firewall Setup</h1>
+	<xmp class="prettyprint xxsmall">
+A firewall is an application that protects your computer against unauthorized access by 
+people on the Internet or your local network. Firewalls block connections to your computer 
+from unknown sources. This helps prevent security breaches. Uncomplicated Firewall (ufw) 
+is the standard firewall configuration program in Ubuntu. It runs from the command line, 
+but a program called Gufw allows you to use it with a graphical user interface GUI. 
+Install it with:
+
+sudo apt-get install gufw
+	</xmp>
+	<br>
+    <img src="images/firewall-setup.png" />
+    <br>
+	<xmp class="prettyprint xxsmall">
+Once Gufw is installed, start Gufw by clicking Dash ‣ Applications ‣ Firewall configuration. 
+To enable the firewall, select the Enable option. By default, all incoming connections are 
+denied. This setting should be suitable for most users.
+	</xmp>
+</div>
+
 <div class="slide">
     <h1>Let's Code!</h1>
 	<xmp class="prettyprint xxsmall">
@@ -501,6 +524,23 @@ on the Launcher, and select Lock Launcher.
 
 To remove an application from the Launcher, right-click on the application's icon, 
 then select Unlock from Launcher.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Locking the screen</h1>
+	<xmp class="prettyprint small">
+When you leave your computer unattended, you may want to lock the screen. 
+Locking your screen prevents anyone from using your computer until your 
+password is entered. To lock the screen:
+
+‣ Click the session menu icon in the right corner of the top panel, 
+  then select Lock Screen, 
+  
+  or
+
+‣ Press Ctrl+Alt+L to lock the screen. This keyboard shortcut can be 
+  changed in Dash ‣ Applications ‣ Keyboard Shortcuts
 	</xmp>
 </div>
 
@@ -874,6 +914,51 @@ Tip: Gebruik 'man gedit' commando om nano commando's aan te leren en gebruiken.
 </div>
 
 <div class="slide">
+    <h1>Software Management</h1>
+	<xmp class="prettyprint small">
+Ubuntu gives you a centralized point with two different ways to browse 
+the repositories for searching, installing and removing software:
+
+   ‣ Ubuntu Software Center
+
+   ‣ Command line apt-get
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Ubuntu Software Center</h1>
+	<xmp class="prettyprint xxsmall">
+Quickest and easiest way to find and install new applications is through the 
+Ubuntu Software Center. To start the application, click on the Ubuntu Software Center 
+icon in the Launcher, or click on the Dash and search for Ubuntu Software Center.
+	</xmp>
+    <img src="images/ubuntu-software-center.png" />
+</div>
+
+<div class="slide">
+    <h1>Software Center - manage software</h1>
+	<xmp class="prettyprint xsmall">
+Removing applications is very similar to installing them. First find the installed 
+software in Ubuntu Software Center. You can click on the Installed button which will 
+show all the installed software listed in different categories. Scroll down to the 
+application you wish to remove.
+	</xmp>
+</div>
+
+<div class="slide">
+    <h1>Updates and upgrades</h1>
+	<xmp class="prettyprint xxsmall">
+Ubuntu allows you to decide how to manage package updates through the Updates tab 
+in the Software Sources window. You can open Software Sources from the Ubuntu 
+Software Center. Simply go to Edit ‣ Software Sources.
+	</xmp>
+    <img src="images/update-manager.png" />
+	<xmp class="prettyprint xsmall">
+	</xmp>
+</div>
+
+
+<div class="slide">
     <h1>Thunderbird Mail - Client Set-up</h1>
 	<xmp class="prettyprint xxsmall">
 Thunderbird is an email client developed by Mozilla and is easy to setup and use.
@@ -963,22 +1048,94 @@ available in Ubuntu.
 
 <div class="slide">
     <h1>Multimedia - Sound</h1>
-
+	<xmp class="prettyprint small">
+    You can specify the sound by clicking on the loudspeaker icon at the 
+    top bar of your desktop.
+	</xmp>
+    <img src="images/sound.png" />
 </div>
 
 <div class="slide">
-    <h1>Multimedia - CD/DVD</h1>
-
+    <h1>Multimedia and Printers</h1>
+	<xmp class="prettyprint small">
+All new printers, cameras, camcorders and mobile phone memory cards are 
+automatically detected by Ubuntu.
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Connecting Other Systems - Secure Connections</h1>
+    <h1>Making Secure Connections -
+    <br>Remote Systems</h1>
+	<xmp class="prettyprint xxsmall">
+Using ssh, you can establish a remote login session on any machine that is running an ssh daemon, sshd. 
+An ssh daemon must be running on the remote system. Daemon not running:
+$ ssh ulaptop
+ssh: connect to host ulaptop port 22: Connection refused
 
+The first time that you attempt to connect to a remote system that you have never connected to before, 
+you will see a message like the following:
+
+$ ssh ulaptop
+The authenticity of host ‘ulaptop (192.168.6.90)’ can’t be established.
+RSA key fingerprint is 07:e6:3a:50:4b:6d:e6:d8:f1:80:c6:b2:da:02:a3:da.
+Are you sure you want to continue connecting (yes/no)?
+
+To continue connecting to this system, type yes and press return. The ssh utility adds the RSA key for 
+the remote system to its list of known hosts (to prevent some other machine from impersonating the 
+remote machine in the future), and prompts you for your password, as in the following example:
+
+Warning: Permanently added ‘ulaptop’ (RSA) to the list of known hosts.
+wvh@ulaptop’s password:
+
+At this prompt, enter your password on the remote system and press return. The prompt will display:
+
+Linux ubuntu32 2.6.15-21-386 #1 PREEMPT Fri Apr 21 16:43:33 UTC 2013
+The programs included with the Ubuntu system are free software; the exact distribution terms for each 
+program are described in the individual files in /usr/share/doc/*/copyright.
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law.
+Last login: Wed May 1 20:15:16 2013
+wvh@ubuntu32:~$
+	</xmp>
 </div>
 
 <div class="slide">
-    <h1>Connecting Other Systems - VNC</h1>
+    <h1>Making Secure Connections -
+    <br>Enabling SSH Daemon</h1>
+	<xmp class="prettyprint xxsmall">
+The version of the SSH server that is available for Ubuntu is the OpenSSH server (www.openssh.org). 
+The OpenSSH server is not installed by default as part of a standard Ubuntu installation but 
+(like everything else in Ubuntu) is easy enough to add.
 
+To install the OpenSSH server type in the terminal window:
+
+sudo apt-get install openssh-server
+
+Use your SSH clients to connect to your machine using the default port 22. If you wish to change 
+the connection port, run the commands below to open the configuration file. 
+
+sudo gedit /etc/ssh/sshd_config
+	</xmp>
+    <img src="images/openssh_server.png" />
+</div>
+
+<div class="slide">
+    <h1>Connecting with VNC</h1>
+	<xmp class="prettyprint xxsmall">
+Virtual Network Computing (VNC) makes it easy for you to work on multiple graphical computer 
+systems by enabling you to export their graphical displays across a network to another machine.
+Ubuntu comes with Vino VNC server pre-installed. To enable it select "Desktop Sharing"
+	</xmp>
+    <img src="images/desktop-sharing.png" />
+    <img src="images/desktop-sharing-preferences.png" />
+	<xmp class="prettyprint xxsmall">
+1. Check the box "Allow users to view your desktop"
+2. Check the box "Require used to enter this password:" and type in your preferred password
+3. Click on "close"
+
+You can test this right away by trying to connect from any local VNC client to the IP of your 
+machine. If you are behind a firewall or NAT router, you will need to forward port 5900 to 
+your Ubuntu machine.
+	</xmp>
 </div>
 
 <div class="slide">
